@@ -28,13 +28,20 @@ export const Hero = () => {
           <div className="mt-10 flex flex-wrap items-center gap-3">
             <Button size="lg" asChild className="rounded-full">
               <a href="#cta">
-                Get started
+                Get API access
                 <ArrowRight className="ml-1 h-4 w-4" />
               </a>
             </Button>
             <Button size="lg" variant="ghost" asChild className="rounded-full">
-              <a href="#code">Documentation</a>
+              <a href="#code">View documentation</a>
             </Button>
+          </div>
+
+          <div className="mt-8 flex items-center gap-3 font-mono text-xs text-muted-foreground">
+            <span className="flex h-1.5 w-1.5 rounded-full bg-[hsl(var(--risk-medium))] shadow-[0_0_8px_hsl(var(--risk-medium))]" />
+            <span>API status: operational</span>
+            <span className="hidden h-3 w-px bg-border sm:block" />
+            <span className="hidden sm:inline">v1.0 · MCP-compatible</span>
           </div>
         </div>
 

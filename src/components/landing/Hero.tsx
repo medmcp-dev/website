@@ -1,49 +1,46 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, BookOpen } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
 
 export const Hero = () => {
   return (
-    <section className="relative overflow-hidden border-b border-border/60">
-      <div className="absolute inset-0 grid-bg" aria-hidden />
-      <div className="container relative grid gap-16 py-24 md:py-32 lg:grid-cols-2 lg:gap-12">
+    <section className="beam-bg relative overflow-hidden">
+      <div className="container relative z-10 grid gap-16 py-24 md:py-36 lg:grid-cols-2 lg:gap-12">
         <div className="flex min-w-0 flex-col justify-center">
-          <div className="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-border bg-card/50 px-3 py-1 text-xs text-muted-foreground">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-            Infrastructure for AI medical agents
-          </div>
-          <h1 className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
-            Medical risk layer for{" "}
-            <span className="text-primary">AI agents</span>
+          <a
+            href="#demo"
+            className="gradient-pill mb-8 inline-flex w-fit items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs text-foreground/90"
+          >
+            Announcing Medical MCP v1
+            <ChevronRight className="h-3.5 w-3.5 opacity-70" />
+          </a>
+
+          <h1 className="font-serif-display text-balance text-5xl leading-[1.02] sm:text-6xl md:text-7xl lg:text-[5.5rem]">
+            <span className="text-gradient-fade">Medical risk</span>
+            <br />
+            <span className="italic text-gradient-fade">for developers</span>
           </h1>
-          <p className="mt-6 max-w-xl text-balance text-lg text-muted-foreground">
-            Turn raw symptoms into structured clinical risk signals using a
-            standardized MCP API. Deterministic output, canonical schema, built
-            for production.
+
+          <p className="mt-8 max-w-xl text-balance text-base text-muted-foreground sm:text-lg">
+            The structured reasoning layer for AI medical agents. Turn raw
+            symptoms into deterministic clinical risk signals at scale.
           </p>
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Button size="lg" asChild>
+
+          <div className="mt-10 flex flex-wrap items-center gap-3">
+            <Button size="lg" asChild className="rounded-full">
               <a href="#cta">
-                Request API access
-                <ArrowRight className="ml-1.5 h-4 w-4" />
+                Get started
+                <ArrowRight className="ml-1 h-4 w-4" />
               </a>
             </Button>
-            <Button size="lg" variant="outline" asChild>
-              <a href="#code">
-                <BookOpen className="mr-1.5 h-4 w-4" />
-                View documentation
-              </a>
+            <Button size="lg" variant="ghost" asChild className="rounded-full">
+              <a href="#code">Documentation</a>
             </Button>
-          </div>
-          <div className="mt-10 flex items-center gap-6 text-xs text-muted-foreground">
-            <span className="font-mono">v1.0 · MCP compatible</span>
-            <span className="hidden h-3 w-px bg-border sm:block" />
-            <span className="hidden sm:inline">Deterministic · Schema-stable · Low latency</span>
           </div>
         </div>
 
         <div className="relative flex min-w-0 items-center">
-          <div className="w-full overflow-hidden rounded-xl border border-border bg-card shadow-2xl shadow-primary/5">
-            <div className="flex items-center gap-2 border-b border-border bg-muted/40 px-4 py-2.5">
+          <div className="w-full overflow-hidden rounded-xl border border-border bg-card/80 backdrop-blur">
+            <div className="flex items-center gap-2 border-b border-border bg-background/40 px-4 py-2.5">
               <div className="flex gap-1.5">
                 <span className="h-2.5 w-2.5 rounded-full bg-muted-foreground/30" />
                 <span className="h-2.5 w-2.5 rounded-full bg-muted-foreground/30" />
@@ -60,8 +57,8 @@ export const Hero = () => {
 {`
 {
   "risk_level": `}<span className="text-[hsl(var(--risk-high))]">{`"HIGH"`}</span>{`,
-  "confidence": `}<span className="text-primary">{`0.87`}</span>{`,
-  "symptom_id": `}<span className="text-primary">{`"SYMPTOM_CHEST_PAIN"`}</span>{`,
+  "confidence": `}<span className="text-foreground">{`0.87`}</span>{`,
+  "symptom_id": `}<span className="text-foreground">{`"SYMPTOM_CHEST_PAIN"`}</span>{`,
   "triage": `}<span className="text-[hsl(var(--risk-high))]">{`"urgent"`}</span>{`
 }`}
             </pre>

@@ -3,8 +3,8 @@ export const WhyItMatters = () => {
     <section className="border-b border-border/60 py-24">
       <div className="container">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-3 font-mono text-xs uppercase tracking-widest text-primary">Why it matters</p>
-          <h2 className="text-balance text-3xl font-semibold tracking-tight md:text-4xl">
+          <p className="mb-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">Why it matters</p>
+          <h2 className="font-serif-display text-balance text-4xl leading-[1.05] md:text-5xl text-gradient-fade">
             Medical AI needs shared infrastructure, not more prompts.
           </h2>
           <p className="mt-6 text-balance text-lg text-muted-foreground">

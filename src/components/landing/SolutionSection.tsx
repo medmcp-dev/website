@@ -12,8 +12,8 @@ export const SolutionSection = () => {
       <div className="container">
         <div className="grid gap-12 lg:grid-cols-2">
           <div>
-            <p className="mb-3 font-mono text-xs uppercase tracking-widest text-primary">The solution</p>
-            <h2 className="text-balance text-3xl font-semibold tracking-tight md:text-4xl">
+            <p className="mb-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">The solution</p>
+            <h2 className="font-serif-display text-balance text-4xl leading-[1.05] md:text-5xl text-gradient-fade">
               A standardized MCP layer for medical AI systems
             </h2>
             <p className="mt-6 max-w-xl text-muted-foreground">

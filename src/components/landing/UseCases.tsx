@@ -12,8 +12,8 @@ export const UseCases = () => {
     <section id="use-cases" className="border-b border-border/60 py-24">
       <div className="container">
         <div className="max-w-2xl">
-          <p className="mb-3 font-mono text-xs uppercase tracking-widest text-primary">Use cases</p>
-          <h2 className="text-balance text-3xl font-semibold tracking-tight md:text-4xl">
+          <p className="mb-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">Use cases</p>
+          <h2 className="font-serif-display text-balance text-4xl leading-[1.05] md:text-5xl text-gradient-fade">
             Built for teams shipping medical AI
           </h2>
         </div>

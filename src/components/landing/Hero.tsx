@@ -11,7 +11,7 @@ export const Hero = () => {
             <span className="h-1.5 w-1.5 rounded-full bg-primary" />
             Infrastructure for AI medical agents
           </div>
-          <h1 className="text-balance text-5xl font-semibold tracking-tight md:text-6xl">
+          <h1 className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
             Medical risk layer for{" "}
             <span className="text-primary">AI agents</span>
           </h1>

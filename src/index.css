@@ -89,9 +89,16 @@
   }
 
   .font-serif-display {
-    font-family: 'Instrument Serif', ui-serif, Georgia, serif;
+    font-family: 'Fraunces', ui-serif, Georgia, serif;
     font-weight: 400;
-    letter-spacing: -0.02em;
+    font-optical-sizing: auto;
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+    letter-spacing: -0.035em;
+  }
+  .font-serif-display em,
+  .font-serif-display i {
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "SOFT" 100;
   }
 }
 

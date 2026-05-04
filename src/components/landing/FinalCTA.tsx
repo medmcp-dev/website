@@ -27,7 +27,7 @@ export const FinalCTA = () => {
           <p className="mt-6 text-lg text-muted-foreground">
             Get early API access and start shipping deterministic medical reasoning today.
           </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+          
           <form
             onSubmit={join}
             className="mx-auto mt-10 flex w-full max-w-md flex-col gap-2 sm:flex-row"

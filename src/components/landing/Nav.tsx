@@ -3,7 +3,7 @@ import { Activity } from "lucide-react";
 
 export const Nav = () => {
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/70 backdrop-blur">
+    <header className="fixed top-0 z-40 w-full border-b border-border/60 bg-background/70 backdrop-blur">
       <div className="container flex h-16 items-center justify-between">
         <a href="#" className="flex items-center gap-2 text-sm font-medium tracking-tight">
           <Activity className="h-4 w-4" />

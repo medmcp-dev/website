@@ -10,7 +10,7 @@ export const Hero = () => {
             href="#demo"
             className="gradient-pill mb-8 inline-flex w-fit items-center gap-1.5 rounded-full px-3.5 py-1.5 text-xs text-foreground/90"
           >
-            Announcing Medical MCP v1
+            Announcing MedMCP v1
             <ChevronRight className="h-3.5 w-3.5 opacity-70" />
           </a>
 
@@ -58,15 +58,18 @@ export const Hero = () => {
             <pre className="overflow-x-auto p-5 font-mono text-[13px] leading-relaxed">
 <span className="text-muted-foreground">{"// Request"}</span>
 {`
-{ "text": "chest pain for 2 hours radiating to left arm" }
+{ "type": "symptom", "data": {
+    "text": "chest pain for 2 hours"
+  }
+}
 
 `}<span className="text-muted-foreground">{"// Response"}</span>
 {`
 {
-  "risk_level": `}<span className="text-[hsl(var(--risk-high))]">{`"HIGH"`}</span>{`,
-  "confidence": `}<span className="text-foreground">{`0.87`}</span>{`,
-  "symptom_id": `}<span className="text-foreground">{`"SYMPTOM_CHEST_PAIN"`}</span>{`,
-  "triage": `}<span className="text-[hsl(var(--risk-high))]">{`"urgent"`}</span>{`
+  "risk_level": `}<span className="text-[hsl(var(--risk-high))]">{`"high"`}</span>{`,
+  "confidence": `}<span className="text-foreground">{`1`}</span>{`,
+  "interpretation": `}<span className="text-foreground">{`"1 symptom(s) identified..."`}</span>{`,
+  "entities": [{ "type": "symptom", "value": `}<span className="text-[hsl(var(--risk-high))]">{`"chest pain"`}</span>{` }]
 }`}
             </pre>
           </div>

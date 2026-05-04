@@ -7,17 +7,17 @@ export const Nav = () => {
       <div className="container flex h-16 items-center justify-between">
         <a href="#" className="flex items-center gap-2 text-sm font-medium tracking-tight">
           <Activity className="h-4 w-4" />
-          <span>Medical MCP</span>
+          <span>MedMCP</span>
         </a>
         <nav className="hidden items-center gap-7 text-sm text-muted-foreground md:flex">
           <a href="#demo" className="transition-colors hover:text-foreground">Demo</a>
           <a href="#code" className="transition-colors hover:text-foreground">API</a>
           <a href="#use-cases" className="transition-colors hover:text-foreground">Use cases</a>
-          <a href="#docs" className="transition-colors hover:text-foreground">Docs</a>
+          <a href="https://github.com/medmcp-dev/core" className="transition-colors hover:text-foreground">GitHub</a>
         </nav>
         <div className="flex items-center gap-1">
           <Button variant="ghost" size="sm" asChild className="hidden rounded-full sm:inline-flex">
-            <a href="#docs">Log in</a>
+            <a href="https://github.com/medmcp-dev/core" target="_blank" rel="noopener noreferrer">GitHub</a>
           </Button>
           <Button size="sm" asChild className="rounded-full">
             <a href="#cta">Get started</a>

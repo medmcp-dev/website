@@ -4,32 +4,24 @@ import { Button } from "@/components/ui/button";
 import { Check, Copy } from "lucide-react";
 
 const snippets = {
-  javascript: `const response = await fetch("https://api.medicalmcp.com/analyze", {
-  method: "POST",
-  headers: {
-    "Authorization": \`Bearer \${process.env.MCP_API_KEY}\`,
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({
-    text: "chest pain for 2 hours"
-  })
-});
+  javascript: `import { MedMCP } from '@medmcp/sdk';
 
-const result = await response.json();
-// { risk_level, confidence, symptom_id, triage }`,
-  curl: `curl https://api.medicalmcp.com/analyze \\
-  -H "Authorization: Bearer $MCP_API_KEY" \\
+const client = new MedMCP({ apiKey: process.env.MEDMCP_API_KEY });
+const result = await client.analyze('chest pain for 2 hours');
+
+console.log(result.risk_level);     // "high"
+console.log(result.interpretation); // "1 symptom(s) identified..."`,
+  curl: `curl -X POST https://core-production-389e.up.railway.app/v1/analyze \\
+  -H "X-API-Key: $MEDMCP_API_KEY" \\
   -H "Content-Type: application/json" \\
-  -d '{ "text": "chest pain for 2 hours" }'`,
-  python: `import os, requests
+  -d '{"type":"symptom","data":{"text":"chest pain for 2 hours"}}'`,
+  python: `from medmcp import MedMCP
 
-r = requests.post(
-    "https://api.medicalmcp.com/analyze",
-    headers={"Authorization": f"Bearer {os.environ['MCP_API_KEY']}"},
-    json={"text": "chest pain for 2 hours"},
-)
+client = MedMCP(api_key=os.environ['MEDMCP_API_KEY'])
+result = client.analyze('chest pain for 2 hours')
 
-result = r.json()`,
+print(result.risk_level)     # "high"
+print(result.interpretation) # "1 symptom(s) identified..."`,
 };
 
 export const CodeExample = () => {
@@ -51,8 +43,8 @@ export const CodeExample = () => {
             One endpoint. Predictable output.
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Drop Medical MCP into any agent runtime. No SDK required, but
-            first-class support for MCP-compatible clients.
+            Drop MedMCP into any agent runtime. No SDK required, but
+            first-class support for JS, Python, and MCP-compatible clients.
           </p>
         </div>
 

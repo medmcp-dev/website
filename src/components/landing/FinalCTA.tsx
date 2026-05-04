@@ -19,26 +19,27 @@ export const FinalCTA = () => {
   };
 
   return (
-    <section id="cta" className="relative overflow-hidden border-b border-border/60 py-28">
-      <div className="absolute inset-0 grid-bg opacity-40" aria-hidden />
-      <div className="container relative">
+    <section id="cta" className="beam-bg relative overflow-hidden border-b border-border/60 py-28">
+      <div className="container relative z-10">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-balance text-4xl font-semibold tracking-tight md:text-5xl">
-            Build medical agents on infrastructure, not prompts.
+          <h2 className="font-serif-display text-balance text-5xl leading-[1.05] md:text-6xl">
+            <span className="text-gradient-fade">Build on infrastructure,</span>
+            <br />
+            <span className="italic text-gradient-fade">not on prompts.</span>
           </h2>
           <p className="mt-6 text-lg text-muted-foreground">
             Get early API access and start shipping deterministic medical reasoning today.
           </p>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <Button size="lg" asChild>
-              <a href="#cta">Get API access <ArrowRight className="ml-1.5 h-4 w-4" /></a>
+            <Button size="lg" asChild className="rounded-full">
+              <a href="#cta">Get API access <ArrowRight className="ml-1 h-4 w-4" /></a>
             </Button>
-            <Button size="lg" variant="outline" asChild>
+            <Button size="lg" variant="ghost" asChild className="rounded-full">
               <a href="#docs"><BookOpen className="mr-1.5 h-4 w-4" /> Read docs</a>
             </Button>
             <Dialog open={open} onOpenChange={setOpen}>
               <DialogTrigger asChild>
-                <Button size="lg" variant="ghost"><Mail className="mr-1.5 h-4 w-4" /> Join waitlist</Button>
+                <Button size="lg" variant="ghost" className="rounded-full"><Mail className="mr-1.5 h-4 w-4" /> Join waitlist</Button>
               </DialogTrigger>
               <DialogContent>
                 <DialogHeader>

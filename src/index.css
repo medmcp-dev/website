@@ -2,40 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Medical MCP design system. All colors HSL. Dark-first developer aesthetic. */
+/* Medical MCP — Resend-inspired dark, monochrome, serif-display aesthetic. */
 
 @layer base {
   :root {
-    /* Light mode kept minimal — app forces dark, but tokens stay valid */
     --background: 0 0% 100%;
-    --foreground: 220 14% 10%;
-
+    --foreground: 0 0% 6%;
     --card: 0 0% 100%;
-    --card-foreground: 220 14% 10%;
-
+    --card-foreground: 0 0% 6%;
     --popover: 0 0% 100%;
-    --popover-foreground: 220 14% 10%;
-
-    --primary: 158 64% 42%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 220 14% 10%;
-
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 9% 45%;
-
-    --accent: 158 64% 42%;
-    --accent-foreground: 0 0% 100%;
-
+    --popover-foreground: 0 0% 6%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 9%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 158 64% 42%;
-
-    --radius: 0.625rem;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 60%;
+    --radius: 0.75rem;
 
     --risk-low: 215 16% 47%;
     --risk-medium: 38 92% 50%;
@@ -44,38 +34,39 @@
   }
 
   .dark {
-    --background: 220 13% 6%;
-    --foreground: 210 20% 96%;
+    --background: 0 0% 3.5%;
+    --foreground: 0 0% 96%;
 
-    --card: 220 13% 8%;
-    --card-foreground: 210 20% 96%;
+    --card: 0 0% 5.5%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 220 13% 9%;
-    --popover-foreground: 210 20% 96%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 96%;
 
-    --primary: 158 70% 48%;
-    --primary-foreground: 220 20% 6%;
+    /* Monochrome white-on-black like Resend */
+    --primary: 0 0% 96%;
+    --primary-foreground: 0 0% 6%;
 
-    --secondary: 220 13% 12%;
-    --secondary-foreground: 210 20% 96%;
+    --secondary: 0 0% 9%;
+    --secondary-foreground: 0 0% 96%;
 
-    --muted: 220 13% 12%;
-    --muted-foreground: 220 9% 60%;
+    --muted: 0 0% 9%;
+    --muted-foreground: 0 0% 56%;
 
-    --accent: 158 70% 48%;
-    --accent-foreground: 220 20% 6%;
+    --accent: 0 0% 10%;
+    --accent-foreground: 0 0% 96%;
 
     --destructive: 0 72% 51%;
-    --destructive-foreground: 210 20% 96%;
+    --destructive-foreground: 0 0% 96%;
 
-    --border: 220 13% 16%;
-    --input: 220 13% 14%;
-    --ring: 158 70% 48%;
+    --border: 0 0% 12%;
+    --input: 0 0% 11%;
+    --ring: 0 0% 30%;
 
-    --risk-low: 215 14% 55%;
-    --risk-medium: 38 92% 55%;
-    --risk-high: 24 94% 58%;
-    --risk-critical: 0 84% 62%;
+    --risk-low: 215 14% 60%;
+    --risk-medium: 38 92% 60%;
+    --risk-high: 24 94% 62%;
+    --risk-critical: 0 84% 65%;
   }
 }
 
@@ -96,18 +87,81 @@
   code, pre, .font-mono {
     font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
   }
+
+  .font-serif-display {
+    font-family: 'Instrument Serif', ui-serif, Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
 }
 
 @layer utilities {
-  .grid-bg {
-    background-image:
-      linear-gradient(to right, hsl(var(--border) / 0.4) 1px, transparent 1px),
-      linear-gradient(to bottom, hsl(var(--border) / 0.4) 1px, transparent 1px);
-    background-size: 56px 56px;
-    mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
-  }
-
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Subtle Resend-style diagonal light beams across a near-black surface */
+  .beam-bg {
+    position: relative;
+    background-color: hsl(var(--background));
+  }
+  .beam-bg::before,
+  .beam-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .beam-bg::before {
+    background:
+      radial-gradient(120% 60% at 50% 0%, hsl(0 0% 100% / 0.06), transparent 60%),
+      radial-gradient(80% 50% at 100% 100%, hsl(0 0% 100% / 0.04), transparent 60%);
+  }
+  .beam-bg::after {
+    background-image: linear-gradient(
+      115deg,
+      transparent 35%,
+      hsl(0 0% 100% / 0.07) 50%,
+      transparent 65%
+    );
+    mix-blend-mode: screen;
+    transform: translateY(10%);
+  }
+
+  .gradient-pill {
+    background: linear-gradient(
+      90deg,
+      hsl(0 0% 8%) 0%,
+      hsl(0 0% 8%) 100%
+    );
+    border: 1px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+  }
+  .gradient-pill::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      90deg,
+      hsl(280 80% 60% / 0.6),
+      hsl(200 80% 60% / 0.4),
+      hsl(150 70% 55% / 0.5)
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .text-gradient-fade {
+    background: linear-gradient(180deg, hsl(0 0% 98%) 0%, hsl(0 0% 55%) 100%);
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: transparent;
   }
 }

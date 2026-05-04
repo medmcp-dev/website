@@ -6,12 +6,12 @@ export const Hero = () => {
     <section className="relative overflow-hidden border-b border-border/60">
       <div className="absolute inset-0 grid-bg" aria-hidden />
       <div className="container relative grid gap-16 py-24 md:py-32 lg:grid-cols-2 lg:gap-12">
-        <div className="flex flex-col justify-center">
+        <div className="flex min-w-0 flex-col justify-center">
           <div className="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-border bg-card/50 px-3 py-1 text-xs text-muted-foreground">
             <span className="h-1.5 w-1.5 rounded-full bg-primary" />
             Infrastructure for AI medical agents
           </div>
-          <h1 className="text-balance text-5xl font-semibold tracking-tight md:text-6xl">
+          <h1 className="text-balance text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
             Medical risk layer for{" "}
             <span className="text-primary">AI agents</span>
           </h1>
@@ -41,7 +41,7 @@ export const Hero = () => {
           </div>
         </div>
 
-        <div className="relative flex items-center">
+        <div className="relative flex min-w-0 items-center">
           <div className="w-full overflow-hidden rounded-xl border border-border bg-card shadow-2xl shadow-primary/5">
             <div className="flex items-center gap-2 border-b border-border bg-muted/40 px-4 py-2.5">
               <div className="flex gap-1.5">

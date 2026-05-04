@@ -11,7 +11,7 @@ export const WhyItMatters = () => {
             Without a shared medical MCP layer, every AI health agent reinvents
             symptom parsing and risk scoring independently — leading to
             inconsistent, unreliable outputs that can't be trusted in
-            production. Medical MCP is the missing standard.
+            production. MedMCP is the missing standard.
           </p>
         </div>
       </div>

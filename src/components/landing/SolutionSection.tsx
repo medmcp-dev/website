@@ -17,7 +17,7 @@ export const SolutionSection = () => {
               A standardized MCP layer for medical AI systems
             </h2>
             <p className="mt-6 max-w-xl text-muted-foreground">
-              Medical MCP provides a deterministic API that converts unstructured
+              MedMCP provides a deterministic API that converts unstructured
               symptom input into structured clinical risk outputs — so your
               agents speak a shared, machine-readable medical language instead
               of free-form text.

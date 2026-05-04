@@ -3,47 +3,45 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Loader2, Play } from "lucide-react";
 
-type Risk = "LOW" | "MEDIUM" | "HIGH" | "CRITICAL";
+type Risk = "low" | "medium" | "high" | "critical";
 
 interface ApiResponse {
   risk_level: Risk;
   confidence: number;
-  symptom_id: string;
-  triage: string;
+  interpretation: string;
+  entities: { type: string; value: string }[];
 }
 
 const riskColor: Record<Risk, string> = {
-  LOW: "bg-risk-low/15 text-risk-low border-risk-low/30",
-  MEDIUM: "bg-risk-medium/15 text-risk-medium border-risk-medium/30",
-  HIGH: "bg-risk-high/15 text-risk-high border-risk-high/30",
-  CRITICAL: "bg-risk-critical/15 text-risk-critical border-risk-critical/30",
+  low: "bg-risk-low/15 text-risk-low border-risk-low/30",
+  medium: "bg-risk-medium/15 text-risk-medium border-risk-medium/30",
+  high: "bg-risk-high/15 text-risk-high border-risk-high/30",
+  critical: "bg-risk-critical/15 text-risk-critical border-risk-critical/30",
 };
 
 const analyze = (text: string): ApiResponse => {
   const t = text.toLowerCase();
   if (t.includes("chest pain") || t.includes("heart attack"))
-    return { risk_level: "HIGH", confidence: 0.87, symptom_id: "SYMPTOM_CHEST_PAIN", triage: "urgent" };
+    return { risk_level: "high", confidence: 1, interpretation: "1 symptom(s) identified: chest pain. Top differential: NSTEMI (match score: 2.8).", entities: [{ type: "symptom", value: "chest pain" }] };
   if (t.includes("stroke") || t.includes("slurred") || t.includes("face droop"))
-    return { risk_level: "CRITICAL", confidence: 0.94, symptom_id: "SYMPTOM_STROKE_SIGNS", triage: "emergency" };
-  if (t.includes("shortness of breath") || t.includes("can't breathe"))
-    return { risk_level: "HIGH", confidence: 0.82, symptom_id: "SYMPTOM_DYSPNEA", triage: "urgent" };
+    return { risk_level: "critical", confidence: 1, interpretation: "2 symptom(s) identified. Top differential: ischaemic stroke (match score: 3.1).", entities: [{ type: "symptom", value: "facial droop" }, { type: "symptom", value: "hemiplegia" }] };
+  if (t.includes("shortness of breath") || t.includes("dyspnoea"))
+    return { risk_level: "high", confidence: 1, interpretation: "1 symptom(s) identified: dyspnoea. Top differential: pulmonary embolism (match score: 2.1).", entities: [{ type: "symptom", value: "dyspnoea" }] };
   if (t.includes("fever"))
-    return { risk_level: "MEDIUM", confidence: 0.74, symptom_id: "SYMPTOM_FEVER", triage: "same_day" };
+    return { risk_level: "medium", confidence: 0.5, interpretation: "1 symptom(s) identified: fever. Top differential: sepsis (match score: 1.2).", entities: [{ type: "symptom", value: "fever" }] };
   if (t.includes("headache") || t.includes("migraine"))
-    return { risk_level: "MEDIUM", confidence: 0.69, symptom_id: "SYMPTOM_HEADACHE", triage: "routine" };
-  if (t.includes("rash"))
-    return { risk_level: "LOW", confidence: 0.71, symptom_id: "SYMPTOM_RASH", triage: "routine" };
-  return { risk_level: "LOW", confidence: 0.58, symptom_id: "SYMPTOM_GENERIC", triage: "routine" };
+    return { risk_level: "medium", confidence: 0.5, interpretation: "1 symptom(s) identified: headache. Top differential: migraine (match score: 1.4).", entities: [{ type: "symptom", value: "headache" }] };
+  return { risk_level: "low", confidence: 0, interpretation: "No recognised symptoms identified.", entities: [] };
 };
 
 export const DemoSimulator = () => {
   const [input, setInput] = useState("chest pain for 2 hours radiating to left arm");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<ApiResponse | null>({
-    risk_level: "HIGH",
-    confidence: 0.87,
-    symptom_id: "SYMPTOM_CHEST_PAIN",
-    triage: "urgent",
+    risk_level: "high",
+    confidence: 1,
+    interpretation: "1 symptom(s) identified: chest pain. Top differential: NSTEMI (match score: 2.8).",
+    entities: [{ type: "symptom", value: "chest pain" }],
   });
 
   const run = () => {
@@ -64,8 +62,8 @@ export const DemoSimulator = () => {
             Try it. Same input, same structured output.
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Send any symptom description. Medical MCP returns a canonical
-            symptom id, risk level, confidence and triage routing.
+            Send any symptom description. MedMCP returns a deterministic
+            risk level, matched entities, and structured interpretation.
           </p>
         </div>
 
@@ -113,10 +111,10 @@ export const DemoSimulator = () => {
                   </div>
                   <pre className="overflow-x-auto font-mono text-[13px] leading-relaxed text-foreground">
 {`{
-  "risk_level":  "${result.risk_level}",
-  "confidence":  ${result.confidence.toFixed(2)},
-  "symptom_id":  "${result.symptom_id}",
-  "triage":      "${result.triage}"
+  "risk_level":    "${result.risk_level}",
+  "confidence":    ${result.confidence},
+  "entities":      ${JSON.stringify(result.entities)},
+  "interpretation":"${result.interpretation.slice(0, 48)}..."
 }`}
                   </pre>
                 </div>

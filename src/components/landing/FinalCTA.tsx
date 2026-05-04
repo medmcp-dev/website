@@ -50,8 +50,8 @@ export const FinalCTA = () => {
               <BookOpen className="h-3.5 w-3.5" /> Read docs
             </a>
             <span className="h-3 w-px bg-border" />
-            <a href="mailto:hello@medicalmcp.dev" className="inline-flex items-center gap-1.5 hover:text-foreground">
-              <Mail className="h-3.5 w-3.5" /> hello@medicalmcp.dev
+            <a href="mailto:hello@medmcp.dev" className="inline-flex items-center gap-1.5 hover:text-foreground">
+              <Mail className="h-3.5 w-3.5" /> hello@medmcp.dev
             </a>
           </div>
         </div>

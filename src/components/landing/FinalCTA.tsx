@@ -4,15 +4,31 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { ArrowRight, BookOpen, Mail } from "lucide-react";
 
+const API_URL = "https://core-production-389e.up.railway.app";
+
 export const FinalCTA = () => {
   const { toast } = useToast();
   const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const join = (e: React.FormEvent) => {
+  const join = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
-    setEmail("");
-    toast({ title: "You're on the list", description: "We'll reach out when API access opens up." });
+    setLoading(true);
+    try {
+      const res = await fetch(`${API_URL}/v1/waitlist`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json();
+      setEmail("");
+      toast({ title: "You're on the list", description: data.message ?? "We'll reach out soon." });
+    } catch {
+      toast({ title: "Something went wrong", description: "Try again in a moment.", variant: "destructive" });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -40,8 +56,8 @@ export const FinalCTA = () => {
               onChange={(e) => setEmail(e.target.value)}
               className="h-11 rounded-full bg-card px-5 text-sm"
             />
-            <Button type="submit" size="lg" className="rounded-full">
-              Request access <ArrowRight className="ml-1 h-4 w-4" />
+            <Button type="submit" size="lg" className="rounded-full" disabled={loading}>
+              {loading ? "Sending…" : <> Request access <ArrowRight className="ml-1 h-4 w-4" /> </>}
             </Button>
           </form>
 

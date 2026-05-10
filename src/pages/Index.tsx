@@ -8,6 +8,7 @@ import { UseCases } from "@/components/landing/UseCases";
 import { WhyItMatters } from "@/components/landing/WhyItMatters";
 import { FinalCTA } from "@/components/landing/FinalCTA";
 import { NaHrvatskomSection } from "@/components/landing/NaHrvatskomSection";
+import { DeveloperPrivacySection } from "@/components/landing/DeveloperPrivacySection";
 import { Footer } from "@/components/landing/Footer";
 
 const Index = () => {
@@ -23,6 +24,7 @@ const Index = () => {
       <WhyItMatters />
       <FinalCTA />
       <NaHrvatskomSection />
+      <DeveloperPrivacySection />
       <Footer />
     </main>
   );

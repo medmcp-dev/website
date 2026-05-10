@@ -32,7 +32,7 @@ export const Footer = () => {
             rel="noopener noreferrer"
             className="hover:text-foreground"
           >
-            KR / Policy (GH)
+            Sažetak (HR)
           </a>
         </div>
       </div>

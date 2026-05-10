@@ -1,4 +1,5 @@
-import type { LandingLocale } from "@/contexts/landing-locale";
+/** Locale keys for landing copy; defined here to avoid circular imports with `landing-locale`. */
+export type LandingLocale = "en" | "hr";
 
 export type ProblemCard = {
   code: string;

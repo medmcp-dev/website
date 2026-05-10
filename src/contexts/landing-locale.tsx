@@ -1,7 +1,7 @@
 import * as React from "react";
-import { landingCopy } from "@/lib/landing-i18n";
+import { landingCopy, type LandingLocale } from "@/lib/landing-i18n";
 
-export type LandingLocale = "en" | "hr";
+export type { LandingLocale };
 
 const STORAGE_KEY = "medmcp-landing-locale";
 

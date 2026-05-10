@@ -1,4 +1,5 @@
 import * as React from "react";
+import { landingCopy } from "@/lib/landing-i18n";
 
 export type LandingLocale = "en" | "hr";
 
@@ -25,6 +26,7 @@ export function LandingLocaleProvider({ children }: { children: React.ReactNode 
 
   React.useEffect(() => {
     document.documentElement.lang = locale;
+    document.title = landingCopy[locale].meta.documentTitle;
   }, [locale]);
 
   const setLocale = React.useCallback((next: LandingLocale) => {

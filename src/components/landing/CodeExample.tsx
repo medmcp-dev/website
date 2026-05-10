@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
+import { useLandingCopy } from "@/hooks/use-landing-copy";
 import { Check, Copy } from "lucide-react";
 
 const snippets = {
@@ -25,6 +26,7 @@ print(result.interpretation) # "1 symptom(s) identified..."`,
 };
 
 export const CodeExample = () => {
+  const t = useLandingCopy();
   const [tab, setTab] = useState<keyof typeof snippets>("javascript");
   const [copied, setCopied] = useState(false);
 
@@ -38,13 +40,12 @@ export const CodeExample = () => {
     <section id="code" className="border-b border-border/60 py-24">
       <div className="container">
         <div className="max-w-2xl">
-          <p className="mb-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">API</p>
+          <p className="mb-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">{t.code.eyebrow}</p>
           <h2 className="font-serif-display text-balance text-4xl leading-[1.05] md:text-5xl text-gradient-fade">
-            One endpoint. Predictable output.
+            {t.code.title}
           </h2>
           <p className="mt-4 text-muted-foreground">
-            Drop MedMCP into any agent runtime. No SDK required, but
-            first-class support for JS, Python, and MCP-compatible clients.
+            {t.code.subtitle}
           </p>
         </div>
 
@@ -58,7 +59,7 @@ export const CodeExample = () => {
               </TabsList>
               <Button variant="ghost" size="sm" onClick={copy}>
                 {copied ? <Check className="mr-1.5 h-3.5 w-3.5 text-primary" /> : <Copy className="mr-1.5 h-3.5 w-3.5" />}
-                {copied ? "Copied" : "Copy"}
+                {copied ? t.code.copied : t.code.copy}
               </Button>
             </div>
             {(Object.keys(snippets) as (keyof typeof snippets)[]).map((k) => (

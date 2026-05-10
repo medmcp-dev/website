@@ -1,10 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { useLandingLocale, type LandingLocale } from "@/contexts/landing-locale";
+import { useLandingCopy } from "@/hooks/use-landing-copy";
 import { Activity } from "lucide-react";
 
 export const Nav = () => {
   const { locale, setLocale } = useLandingLocale();
+  const t = useLandingCopy();
 
   return (
     <header className="fixed top-0 z-40 w-full border-b border-border/60 bg-background/70 backdrop-blur">
@@ -14,10 +16,10 @@ export const Nav = () => {
           <span>MedMCP</span>
         </a>
         <nav className="hidden items-center gap-7 text-sm text-muted-foreground md:flex">
-          <a href="#demo" className="transition-colors hover:text-foreground">Demo</a>
-          <a href="#code" className="transition-colors hover:text-foreground">API</a>
-          <a href="#use-cases" className="transition-colors hover:text-foreground">Use cases</a>
-          <a href="https://github.com/medmcp-dev/core" className="transition-colors hover:text-foreground">GitHub</a>
+          <a href="#demo" className="transition-colors hover:text-foreground">{t.nav.demo}</a>
+          <a href="#code" className="transition-colors hover:text-foreground">{t.nav.api}</a>
+          <a href="#use-cases" className="transition-colors hover:text-foreground">{t.nav.useCases}</a>
+          <a href="https://github.com/medmcp-dev/core" className="transition-colors hover:text-foreground">{t.nav.github}</a>
         </nav>
         <div className="flex items-center gap-1.5 sm:gap-2">
           <ToggleGroup
@@ -45,10 +47,10 @@ export const Nav = () => {
             </ToggleGroupItem>
           </ToggleGroup>
           <Button variant="ghost" size="sm" asChild className="hidden rounded-full sm:inline-flex">
-            <a href="https://github.com/medmcp-dev/core" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://github.com/medmcp-dev/core" target="_blank" rel="noopener noreferrer">{t.nav.github}</a>
           </Button>
           <Button size="sm" asChild className="rounded-full">
-            <a href="#cta">Get started</a>
+            <a href="#cta">{t.nav.getStarted}</a>
           </Button>
         </div>
       </div>

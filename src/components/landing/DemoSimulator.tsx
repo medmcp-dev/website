@@ -79,7 +79,7 @@ export const DemoSimulator = () => {
 
   useLayoutEffect(() => {
     setResult(runDemoAnalyze(inputRef.current, t.demoInterpretation));
-  }, [locale, t.demoInterpretation]);
+  }, [t.demoInterpretation]);
 
   const run = () => {
     setLoading(true);

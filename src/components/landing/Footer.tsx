@@ -14,10 +14,26 @@ export const Footer = () => {
           Developer infrastructure for AI medical agents. MedMCP is not a
           medical device, diagnostic tool, or substitute for professional care.
         </p>
-        <div className="flex gap-6 text-xs text-muted-foreground">
+        <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-muted-foreground">
           <a href="#docs" className="hover:text-foreground">Docs</a>
           <a href="#code" className="hover:text-foreground">API</a>
           <a href="#cta" className="hover:text-foreground">Contact</a>
+          <a
+            href="https://github.com/medmcp-dev/core/blob/main/docs/policy.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-foreground"
+          >
+            Usage policy
+          </a>
+          <a
+            href="https://github.com/medmcp-dev/core/blob/main/docs/policy-hr.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-foreground"
+          >
+            KR / Policy (GH)
+          </a>
         </div>
       </div>
     </footer>

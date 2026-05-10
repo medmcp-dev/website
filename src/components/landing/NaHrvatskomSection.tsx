@@ -7,7 +7,7 @@ export const NaHrvatskomSection = () => {
       <div className="container">
         <div className="max-w-3xl">
           <p className="mb-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-            // disclaimer (HR)
+            // na hrvatskom, kratko
           </p>
           <h2 className="font-serif-display text-balance text-4xl leading-[1.05] text-gradient-fade md:text-5xl">
             Na hrvatskom
@@ -41,9 +41,11 @@ export const NaHrvatskomSection = () => {
               href={POLICY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+              className="underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
             >
-              Usage policy
+              <strong className="font-semibold text-foreground">
+                Usage policy
+              </strong>
             </a>
             .
           </p>

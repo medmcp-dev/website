@@ -26,7 +26,8 @@ export function LandingLocaleProvider({ children }: { children: React.ReactNode 
 
   React.useEffect(() => {
     document.documentElement.lang = locale;
-    document.title = landingCopy[locale].meta.documentTitle;
+    const copy = landingCopy[locale] ?? landingCopy.en;
+    document.title = copy.meta.documentTitle;
   }, [locale]);
 
   const setLocale = React.useCallback((next: LandingLocale) => {

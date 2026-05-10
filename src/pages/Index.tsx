@@ -7,6 +7,7 @@ import { CodeExample } from "@/components/landing/CodeExample";
 import { UseCases } from "@/components/landing/UseCases";
 import { WhyItMatters } from "@/components/landing/WhyItMatters";
 import { FinalCTA } from "@/components/landing/FinalCTA";
+import { NaHrvatskomSection } from "@/components/landing/NaHrvatskomSection";
 import { Footer } from "@/components/landing/Footer";
 
 const Index = () => {
@@ -21,6 +22,7 @@ const Index = () => {
       <UseCases />
       <WhyItMatters />
       <FinalCTA />
+      <NaHrvatskomSection />
       <Footer />
     </main>
   );

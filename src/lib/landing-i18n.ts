@@ -216,7 +216,7 @@ export const landingCopy: Record<LandingLocale, LandingCopy> = {
       eyebrow: "API",
       title: "One endpoint. Predictable output.",
       subtitle:
-        "Drop MedMCP into any agent runtime. No SDK required, but first-class support for JS, Python, and MCP-compatible clients.",
+        "Drop MedMCP into any agent runtime. No SDK required, but first-class support for JS, Python, and MCP-compatible clients. The website demo calls /api/analyze proxy, while direct integrations call /v1/analyze.",
       copy: "Copy",
       copied: "Copied",
     },
@@ -377,7 +377,7 @@ export const landingCopy: Record<LandingLocale, LandingCopy> = {
       eyebrow: "API",
       title: "Jedan endpoint. Predvidljiv izlaz.",
       subtitle:
-        "Ubaci MedMCP u bilo koji agent runtime. SDK nije obavezan, ali postoji prva klasa podrške za JS, Python i MCP-klijente.",
+        "Ubaci MedMCP u bilo koji agent runtime. SDK nije obavezan, ali postoji prva klasa podrške za JS, Python i MCP-klijente. Website demo zove /api/analyze proxy, a direktne integracije koriste /v1/analyze.",
       copy: "Kopiraj",
       copied: "Kopirano",
     },

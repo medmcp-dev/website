@@ -17,7 +17,7 @@ export const Footer = () => {
           {t.footer.tagline}
         </p>
         <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-muted-foreground">
-          <a href="#docs" className="hover:text-foreground">{t.footer.docs}</a>
+          <a href="#code" className="hover:text-foreground">{t.footer.docs}</a>
           <a href="#code" className="hover:text-foreground">{t.footer.api}</a>
           <a href="#cta" className="hover:text-foreground">{t.footer.contact}</a>
           <a

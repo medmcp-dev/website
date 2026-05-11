@@ -10,19 +10,24 @@ const snippets = {
 const client = new MedMCP({ apiKey: process.env.MEDMCP_API_KEY });
 const result = await client.analyze('chest pain for 2 hours');
 
-console.log(result.risk_level);     // "high"
+console.log(result.risk_level);     // "high" | "critical"
+console.log(result.confidence);     // 0..1
+console.log(result.signals);        // structured risk drivers
 console.log(result.interpretation); // "1 symptom(s) identified..."`,
   curl: `curl -X POST https://core-production-389e.up.railway.app/v1/analyze \\
   -H "X-API-Key: $MEDMCP_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{"type":"symptom","data":{"text":"chest pain for 2 hours"}}'`,
-  python: `from medmcp import MedMCP
+  python: `import os
+from medmcp import MedMCP
 
 client = MedMCP(api_key=os.environ['MEDMCP_API_KEY'])
 result = client.analyze('chest pain for 2 hours')
 
-print(result.risk_level)     # "high"
-print(result.interpretation) # "1 symptom(s) identified..."`,
+print(result.risk_level)      # "high" | "critical"
+print(result.confidence)      # 0..1
+print(result.signals)         # structured risk drivers
+print(result.interpretation)  # "1 symptom(s) identified..."`,
 };
 
 export const CodeExample = () => {
